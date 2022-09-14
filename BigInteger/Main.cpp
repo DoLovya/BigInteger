@@ -1,12 +1,9 @@
 #include "BcHeader.h"
-#include "BigCalculator.h"
 #include "BcSign.h"
-#include <string>
-#include <iostream>
+#include "BcTest.h"
 
 int main(int argc, char *argv[])
 {
-	bc::Sign sg(bc::eSign::positive);
-
+	bc::BigTest::testSign();
 	return 0;
 }

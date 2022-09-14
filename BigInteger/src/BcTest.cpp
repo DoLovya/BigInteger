@@ -1,34 +1,41 @@
-//#include "BcTest.h"
-//
-//void BcTest::testBcDigit()
-//{
-//	using type = BcDigit;
-//	type a;
-//	type b = 1;
-//	type c = '2';
-//
-//	type tmp;
-//	tmp = ++type(1);
-//	tmp = --type(1);
-//	tmp = type(1)++;
-//	tmp = type(1)--;
-//
-//	tmp = 2;
-//	tmp += tmp;
-//	tmp = 2;
-//	tmp -= tmp;
-//	tmp = 2;
-//	tmp *= tmp;
-//	tmp = 3;
-//	tmp /= type(2);
-//	tmp = 10;
-//	tmp %= type(3);
-//
-//	tmp = type(1) + type(2);
-//	tmp = type(1) - type(2);
-//	tmp = type(1) * type(2);
-//	tmp = type(3) / type(2);
-//	tmp = type(3) % type(2);
-//
-//	char cNum = tmp.getValue();
-//}
+#include "BcTest.h"
+using namespace bc;
+
+void BigTest::testSign()
+{
+	const auto& msgMaxLen = 12;
+	const auto& typeMsg   = stringToEquilong("TestSign", msgMaxLen);
+	const auto& inputMsg  = stringToEquilong("Input value", msgMaxLen);
+	const auto& outputMsg = stringToEquilong("Output value", msgMaxLen);
+
+	auto debugDefaultConstruct = [&]()
+	{
+		Sign sign;
+		printf("%s -> Default construct\n", typeMsg.c_str());
+		printf("%s -> %s\n", inputMsg.c_str(), "NULL");
+		printf("%s -> %c\n\n", outputMsg.c_str(), (sign.toChar() == '\0') ? '0' : sign.toChar());
+	};
+	auto debugConstruct = [&](const eSign& val)
+	{
+		Sign sign(val);
+		printf("%s -> construct\n", typeMsg.c_str());
+		printf("%s -> %d\n", inputMsg.c_str(), static_cast<int>(val));
+		printf("%s -> %c\n\n", outputMsg.c_str(), (sign.toChar() == '\0') ? '0' : sign.toChar());
+	};
+	auto copyConstruct = [&](const eSign& val)
+	{
+		Sign sign = val;
+		printf("%s -> Copy construct\n", typeMsg.c_str());
+		printf("%s -> %d\n", inputMsg.c_str(), static_cast<int>(val));
+		printf("%s -> %c\n\n", outputMsg.c_str(), (sign.toChar() == '\0') ? '0' : sign.toChar());
+	};
+
+	debugDefaultConstruct();
+	debugConstruct(eSign::negative);
+	debugConstruct(eSign::zero);
+	debugConstruct(eSign::positive);
+	copyConstruct(eSign::negative);
+	copyConstruct(eSign::zero);
+	copyConstruct(eSign::positive);
+
+}

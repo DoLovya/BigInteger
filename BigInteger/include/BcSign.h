@@ -11,9 +11,12 @@ class Sign
 {
 public:
 	Sign() noexcept;
+
 	Sign(const eSign& sign) noexcept;
 	Sign(const Sign& sign) noexcept;
 	virtual ~Sign() noexcept;
+
+	Sign& operator= (const Sign& val) noexcept;
 
 	const eSign& data() const noexcept;
 	char toChar() const noexcept;

@@ -44,26 +44,30 @@ char Sign::toChar() const noexcept
 		return '+';
 		break;
 	default:
-		Q_ASSERT_X(false, "const char&  Sign::toChar() const noexcept", "Impossible Event");
+		assert(false);
 		break;
 	}
+}
+Sign& Sign::operator= (const Sign& val) noexcept
+{
+	//sign_ = Sign(val.sign_);
+	return *this;
 }
 /****************************************************
  * module -> Ë½ÓÐº¯Êý
 ****************************************************/
-void  Sign::defauleConstruct()
+inline void  Sign::defauleConstruct()
 {
 	sign_ = eSign::zero;
 }
-void Sign::construct(const eSign& sign)
+inline void Sign::construct(const eSign& sign)
 {
 	sign_ = sign;
 }
-void Sign::copyConstruct(const Sign& sign)
+inline void Sign::copyConstruct(const Sign& sign)
 {
-	*this = Sign(sign);
+	sign_ = sign.sign_;
 }
-void Sign::destruct()
+inline void Sign::destruct()
 {
-
 }

@@ -4,6 +4,8 @@
 
 #include <vector>
 #include <string>
+#include <cassert>
+#include <iostream>
 #include <cinttypes>
 #include <algorithm>
 

@@ -130,21 +130,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="src\BcAlgorithm.cpp" />
     <ClCompile Include="src\BcBigInteger.cpp" />
     <ClCompile Include="src\BcBigUInteger.cpp" />
-    <ClCompile Include="src\BcDigit.cpp" />
     <ClCompile Include="src\BcEnum.cpp" />
     <ClCompile Include="src\BcSign.cpp" />
     <ClCompile Include="src\BcTest.cpp" />
-    <ClCompile Include="test_script\test_four_operations\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BcHeader.h" />
-    <ClInclude Include="BcTest.h" />
-    <ClInclude Include="include\BcAlgorithms.h" />
+    <ClInclude Include="include\BcHeader.h" />
+    <ClInclude Include="include\BcTest.h" />
+    <ClInclude Include="include\BcAlgorithm.h" />
     <ClInclude Include="include\BcBigInteger.h" />
     <ClInclude Include="include\BcBigUInteger.h" />
-    <ClInclude Include="include\BcDigit.h" />
     <ClInclude Include="include\BcEnum.h" />
     <ClInclude Include="include\BcSign.h" />
   </ItemGroup>

@@ -3,7 +3,7 @@
 #ifndef INCLUDE_BC_ALGORITHM_H
 #define INCLUDE_BC_ALGORITHM_H
 
-#include <algorithm>
+#include "BcHeader.h"
 BC_NAMESPACE_BEGIN
 
 
@@ -22,6 +22,9 @@ RetType uint64ToRevVector(uint64_t number, const int32_t& base)
 	}
 	return res;
 }
+
+std::string stringToEquilong(const std::string& str, const size_t& len);
+
 
 
 BC_NAMESPACE_END
