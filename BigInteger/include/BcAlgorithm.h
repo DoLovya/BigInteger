@@ -7,10 +7,10 @@
 BC_NAMESPACE_BEGIN
 
 
-template<typename RetType>
-RetType uint64ToRevVector(uint64_t number, const int32_t& base)
+template<typename _RetType>
+_RetType uint64ToRevVector(uint64_t number, const int32_t& base)
 {
-	RetType res = {};
+	_RetType res = {};
 	if (number == 0ULL) res.push_back(0);
 	else
 	{

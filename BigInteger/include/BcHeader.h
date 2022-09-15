@@ -5,6 +5,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <sstream>
 #include <iostream>
 #include <cinttypes>
 #include <algorithm>

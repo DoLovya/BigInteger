@@ -1,9 +1,10 @@
 #include "BcSign.h"
+using namespace bc;
+
 
 /****************************************************
  * module -> ¹¹Ôìº¯Êý
 ****************************************************/
-using namespace bc;
 Sign::Sign() noexcept
 {
 	defauleConstruct();
@@ -50,7 +51,7 @@ char Sign::toChar() const noexcept
 }
 Sign& Sign::operator= (const Sign& val) noexcept
 {
-	//sign_ = Sign(val.sign_);
+	this->sign_ = val.sign_;
 	return *this;
 }
 /****************************************************

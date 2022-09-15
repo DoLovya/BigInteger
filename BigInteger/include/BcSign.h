@@ -14,6 +14,7 @@ public:
 
 	Sign(const eSign& sign) noexcept;
 	Sign(const Sign& sign) noexcept;
+
 	virtual ~Sign() noexcept;
 
 	Sign& operator= (const Sign& val) noexcept;

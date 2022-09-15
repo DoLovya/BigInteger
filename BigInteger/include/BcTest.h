@@ -4,8 +4,9 @@
 
 // My Header
 #include "BcHeader.h"
-#include "BcSign.h"
 #include "BcAlgorithm.h"
+#include "BcSign.h"
+#include "BcDigit.h"
 
 BC_NAMESPACE_BEGIN
 using namespace bc;
@@ -13,6 +14,10 @@ class BigTest
 {
 public:
 	static void testSign();
+	static void testDigit();
+
+
+
 };
 BC_NAMESPACE_END
 
