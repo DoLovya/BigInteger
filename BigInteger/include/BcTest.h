@@ -15,12 +15,9 @@ class BigTest
 public:
 	static void testSign();
 	static void testDigit();
-
-
-
 };
+
+
+
 BC_NAMESPACE_END
-
-
-
 #endif // !INCLUDE_BC_TEST_H

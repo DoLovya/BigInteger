@@ -12,7 +12,7 @@ class BigUInteger
 public:
 	using Vector = std::vector<int8_t>;
 	using String = std::string;
-	using Input  = std::istream;
+	using Input = std::istream;
 
 public:
 	BigUInteger() noexcept;
