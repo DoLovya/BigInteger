@@ -2,9 +2,10 @@
 #ifndef INCLUDE_BC_SIGN_H
 #define INCLUDE_BC_SIGN_H
 
-#include "BcHeader.h"
-#include "BcEnum.h"
-BC_NAMESPACE_BEGIN
+#include "Header.h"
+#include "Enum.h"
+
+BN_NAMESPACE_BEGIN
 
 
 class Sign
@@ -33,5 +34,5 @@ private:
 };
 
 
-BC_NAMESPACE_END
+BN_NAMESPACE_END
 #endif // !INCLUDE_BC_SIGN_H

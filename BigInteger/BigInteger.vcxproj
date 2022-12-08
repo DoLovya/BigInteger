@@ -130,23 +130,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="src\BcAlgorithm.cpp" />
-    <ClCompile Include="src\BcBigInteger.cpp" />
-    <ClCompile Include="src\BcBigUInteger.cpp" />
-    <ClCompile Include="src\BcEnum.cpp" />
-    <ClCompile Include="src\BcSign.cpp" />
-    <ClCompile Include="src\BcTest.cpp" />
+    <ClCompile Include="source\BigInteger.cpp" />
+    <ClCompile Include="source\BigUInt.cpp" />
+    <ClCompile Include="source\Enum.cpp" />
+    <ClCompile Include="source\Sign.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AbstractClass\include\BcAbstractDigit.h" />
-    <ClInclude Include="include\BcDigit.h" />
-    <ClInclude Include="include\BcHeader.h" />
-    <ClInclude Include="include\BcTest.h" />
-    <ClInclude Include="include\BcAlgorithm.h" />
-    <ClInclude Include="include\BcBigInteger.h" />
-    <ClInclude Include="include\BcBigUInteger.h" />
-    <ClInclude Include="include\BcEnum.h" />
-    <ClInclude Include="include\BcSign.h" />
+    <ClInclude Include="include\Header.h" />
+    <ClInclude Include="include\Algorithm.h" />
+    <ClInclude Include="include\BigInteger.h" />
+    <ClInclude Include="include\BigUInt.h" />
+    <ClInclude Include="include\Enum.h" />
+    <ClInclude Include="include\Sign.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,5 +1,5 @@
-#include "BcSign.h"
-using namespace bc;
+#include "Sign.h"
+using namespace BN;
 
 
 /****************************************************
