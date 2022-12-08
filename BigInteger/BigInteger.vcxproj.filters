@@ -15,54 +15,39 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\BcBigInteger.cpp">
+    <ClCompile Include="source\BigInteger.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\BcBigUInteger.cpp">
+    <ClCompile Include="source\BigUInt.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\BcEnum.cpp">
+    <ClCompile Include="source\Enum.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\BcSign.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="src\BcTest.cpp">
+    <ClCompile Include="source\Sign.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\BcAlgorithm.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\BcAlgorithm.h">
+    <ClInclude Include="include\Algorithm.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="include\BcBigInteger.h">
+    <ClInclude Include="include\BigInteger.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="include\BcBigUInteger.h">
+    <ClInclude Include="include\BigUInt.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="include\BcEnum.h">
+    <ClInclude Include="include\Enum.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="include\BcSign.h">
+    <ClInclude Include="include\Sign.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="include\BcHeader.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="include\BcTest.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="include\BcDigit.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="AbstractClass\include\BcAbstractDigit.h">
+    <ClInclude Include="include\Header.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

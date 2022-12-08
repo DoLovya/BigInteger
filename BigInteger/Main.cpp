@@ -1,14 +1,17 @@
-#include "BcHeader.h"
-#include "BcSign.h"
-#include "BcTest.h"
-#include "BcDigit.h"
+#include "Header.h"
+#include "Sign.h"
+#include "BigUInt.h"
 
-#include <queue>
-#include <bitset>
-
-int main(int argc, char *argv[])
+int main()
 {
-	//bc::BigTest::testSign();
-	bc::BigTest::testDigit();
+	BN::BigUInt num1, num2;
+	while (std::cin >> num1 >> num2)
+	{
+		std::cout << (num1 < num2) << std::endl;
+		std::cout << (num1 <= num2) << std::endl;
+		std::cout << (num1 > num2) << std::endl;
+		std::cout << (num1 >= num2) << std::endl;
+		std::cout << (num1 == num2) << std::endl;
+	}
 	return 0;
 }
