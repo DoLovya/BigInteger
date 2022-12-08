@@ -13,5 +13,6 @@ int main()
 		std::cout << (num1 >= num2) << std::endl;
 		std::cout << (num1 == num2) << std::endl;
 	}
+
 	return 0;
 }

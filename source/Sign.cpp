@@ -3,7 +3,7 @@ using namespace BN;
 
 
 /****************************************************
- * module -> ¹¹Ôìº¯Êý
+ * module -> ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½
 ****************************************************/
 Sign::Sign() noexcept
 {
@@ -18,14 +18,14 @@ Sign::Sign(const Sign& sign) noexcept
 	copyConstruct(sign);
 }
 /****************************************************
- * module -> Îö¹¹º¯Êý
+ * module -> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 ****************************************************/
 Sign::~Sign() noexcept
 {
 	destruct();
 }
 /****************************************************
- * module -> ½Ó¿Úº¯Êý
+ * module -> ï¿½Ó¿Úºï¿½ï¿½ï¿½
 ****************************************************/
 const eSign& Sign::data() const noexcept
 {
@@ -48,6 +48,7 @@ char Sign::toChar() const noexcept
 		assert(false);
 		break;
 	}
+	return '1';
 }
 Sign& Sign::operator= (const Sign& val) noexcept
 {
@@ -55,7 +56,7 @@ Sign& Sign::operator= (const Sign& val) noexcept
 	return *this;
 }
 /****************************************************
- * module -> Ë½ÓÐº¯Êý
+ * module -> Ë½ï¿½Ðºï¿½ï¿½ï¿½
 ****************************************************/
 inline void  Sign::defauleConstruct()
 {

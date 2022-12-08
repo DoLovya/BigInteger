@@ -134,6 +134,7 @@
     <ClCompile Include="source\BigUInt.cpp" />
     <ClCompile Include="source\Enum.cpp" />
     <ClCompile Include="source\Sign.cpp" />
+    <ClCompile Include="test\BigUInt\CmpFunc\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Header.h" />
@@ -142,6 +143,11 @@
     <ClInclude Include="include\BigUInt.h" />
     <ClInclude Include="include\Enum.h" />
     <ClInclude Include="include\Sign.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
+    <None Include="README.md" />
+    <None Include="test\BigUInt\CmpFunc\Makefile" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

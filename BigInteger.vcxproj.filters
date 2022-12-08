@@ -30,6 +30,9 @@
     <ClCompile Include="Main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="test\BigUInt\CmpFunc\main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Algorithm.h">
@@ -50,5 +53,10 @@
     <ClInclude Include="include\Header.h">
       <Filter>头文件</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
+    <None Include="README.md" />
+    <None Include="test\BigUInt\CmpFunc\Makefile" />
   </ItemGroup>
 </Project>
