@@ -41,6 +41,7 @@ public:
 	friend bool operator<= (const BigUInt& lhs, const BigUInt& rhs);
 	friend bool operator> (const BigUInt& lhs, const BigUInt& rhs);
 	friend bool operator>= (const BigUInt& lhs, const BigUInt& rhs);
+	friend bool operator!= (const BigUInt& lhs, const BigUInt& rhs);
 	friend bool operator== (const BigUInt& lhs, const BigUInt& rhs);
 
 

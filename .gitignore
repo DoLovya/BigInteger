@@ -363,5 +363,8 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # My folder
-test/
+# test/
 *.exe
+*.txt
+*.db
+.vscode

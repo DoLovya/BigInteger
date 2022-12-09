@@ -167,6 +167,10 @@ bool operator>= (const BigUInt& lhs, const BigUInt& rhs)
 {
 	return BigUInt::CmpBigUInt(lhs, rhs) >= 0 ? true : false;
 }
+bool operator!= (const BigUInt& lhs, const BigUInt& rhs)
+{
+	return BigUInt::CmpBigUInt(lhs, rhs) != 0 ? true : false;
+}
 bool operator== (const BigUInt& lhs, const BigUInt& rhs)
 {
 	return BigUInt::CmpBigUInt(lhs, rhs) == 0 ? true : false;
