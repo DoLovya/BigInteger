@@ -1,0 +1,6 @@
+// 提示文件帮助 Visual Studio IDE 解释 Visual C++ 标识符,
+// 如函数和宏的名称。
+// 有关详细信息，请参见 https://go.microsoft.com/fwlink/?linkid=865984
+#define BN_NAMESPACE_BEGIN namespace BN {#define XASSERT(exp_, msgw_) ((void)0)
+#define XASSERT(exp_, msgw_) _ASSERT_EXPR((exp_), (std::wstring(L#exp_)+L"\r\nMessage: "+(msgw_)).c_str())
+#define BN_NAMESPACE_END }

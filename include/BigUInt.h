@@ -4,11 +4,12 @@
 
 // My Header
 #include "Header.h"
+
 #include "Enum.h"
+#include "Sign.h"
 #include "Algorithm.h"
 
 BN_NAMESPACE_BEGIN
-
 
 
 class BigUInt
@@ -25,25 +26,23 @@ public:
 	BigUInt(const std::string& number) noexcept;
 	BigUInt(const BigUInt& number) noexcept;
 
+	/* 运算符重载 */
 	BigUInt& operator= (const uint64_t& number) noexcept;
 	BigUInt& operator= (const std::string& number) noexcept;
 	BigUInt& operator= (const BigUInt& number) noexcept;
 
-	// 重载>>
 	friend std::istream& operator>>(std::istream& in, BigUInt& bigUInt);
-	// 重载<<
 	friend std::ostream& operator<< (std::ostream& out, const BigUInt& bigUInt);
-	// 重载+
-	friend BigUInt operator+ (const BigUInt& lhs, const BigUInt& rhs);
 
-	// 重载<
+	friend BigUInt operator+ (const BigUInt& lhs, const BigUInt& rhs);
+	friend BigUInt operator- (const BigUInt& lhs, const BigUInt& rhs);
+
 	friend bool operator< (const BigUInt& lhs, const BigUInt& rhs);
 	friend bool operator<= (const BigUInt& lhs, const BigUInt& rhs);
 	friend bool operator> (const BigUInt& lhs, const BigUInt& rhs);
 	friend bool operator>= (const BigUInt& lhs, const BigUInt& rhs);
 	friend bool operator!= (const BigUInt& lhs, const BigUInt& rhs);
 	friend bool operator== (const BigUInt& lhs, const BigUInt& rhs);
-
 
 	size_t Size() const noexcept;
 	const Number& Data() const noexcept;
@@ -54,17 +53,24 @@ private:
 	void Construct(const uint64_t& number) noexcept;
 	void Construct(const std::string& str) noexcept;
 	void CopyConstruct(const BigUInt& number) noexcept;
-	bool IsZero() const noexcept;
 
-	void Add(const BigUInt& rhs);
-	void Sub(const BigUInt& rhs);
+	bool IsZero() const noexcept;
+	void RemoveLeadZero() noexcept;
+
+	void Add(const BigUInt& rhs) noexcept;
+	void Sub(const BigUInt& rhs) noexcept;  // 必须保证 this > rhs
 
 	// 重载[]
 	int32_t operator[] (int32_t index) const noexcept;
-	static int32_t CmpBigUInt(const BigUInt& lhs, const BigUInt& rhs);
+
+	std::vector<int32_t>::const_reverse_iterator rbegin() const;
+	std::vector<int32_t>::const_reverse_iterator rend() const;
+
+
+	static int32_t CmpBigUInt(const BigUInt& lhs, const BigUInt& rhs) noexcept;
 
 private:
-	Number uInt_;  // 无符号整数
+	Number num_;  // 整数
 };
 
 

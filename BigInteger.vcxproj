@@ -131,15 +131,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="include\BIgPolynomial.h" />
     <ClCompile Include="Main.cpp">
       <DeploymentContent>true</DeploymentContent>
     </ClCompile>
     <ClCompile Include="source\BigInteger.cpp" />
+    <ClCompile Include="source\BIgPolynomial.cpp" />
     <ClCompile Include="source\BigUInt.cpp" />
+    <ClCompile Include="source\Complex.cpp" />
     <ClCompile Include="source\Enum.cpp" />
     <ClCompile Include="source\Sign.cpp" />
+    <ClCompile Include="test\BigUInt_AddFunc\main.cpp" />
+    <ClCompile Include="test\BigUInt_CmpFunc\main.cpp" />
+    <ClCompile Include="test\BigUInt_Sub\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Complex.h" />
     <ClInclude Include="include\Header.h" />
     <ClInclude Include="include\Algorithm.h" />
     <ClInclude Include="include\BigInteger.h" />
@@ -149,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
+    <None Include="cpp.hint" />
     <None Include="Makefile" />
     <None Include="README.md" />
   </ItemGroup>
