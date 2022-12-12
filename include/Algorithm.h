@@ -48,6 +48,10 @@ inline int32_t charToDigit(const char& ch)
 	return ch - '0';
 }
 
+inline bool DoubleIsZero(const double& lhs, const double& eps = 1e-6)
+{
+	return fabs(lhs) < eps;
+}
 
 
 BN_NAMESPACE_END

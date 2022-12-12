@@ -2,10 +2,12 @@
 #ifndef BN_HEADER_H
 #define BN_HEADER_H
 
+#include <cmath>
 #include <vector>
 #include <string>
 #include <cassert>
 #include <sstream>
+#include <iostream>
 #include <iostream>
 #include <cinttypes>
 #include <algorithm>

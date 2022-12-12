@@ -1,6 +1,6 @@
 import random
 
-COUNT: int = 1000
+COUNT: int = 1
 
 
 def main():
@@ -9,7 +9,8 @@ def main():
             print(i, j)
 
     for i in range(0, COUNT):
-        print("%d %d" % (random.getrandbits(1000), random.getrandbits(1000)),
+        print("%d %d" %
+              (random.getrandbits(1000000), random.getrandbits(1000000)),
               end="\n")
     pass
 

@@ -1,12 +1,16 @@
 #include "Header.h"
 #include "Sign.h"
 #include "BigUInt.h"
+#include "BIgPolynomial.h"
 
 int main()
 {
-	BN::BigUInt num1, num2;
-	while (std::cin >> num1 >> num2)
-	{
-	}
+	std::cout << BN::DoubleIsZero(1) << std::endl;
+
+	BN::Polynomial p1 = { 1.0, 1.0 };
+	BN::Polynomial p2 = { 1.0, 1.0 };
+
+	std::cout << p1 * p2 << std::endl;
+
 	return 0;
 }

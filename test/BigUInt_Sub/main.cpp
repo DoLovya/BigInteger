@@ -12,9 +12,7 @@ int main()
 	BN::BigUInt num1, num2;
 	while (std::cin >> num1 >> num2)
 	{
-		std::cout << num1 + num2 << std::endl;
+		std::cout << num1 - num2 << std::endl;
 	}
-
-	std::cout << "The run time is:" << (double)clock() / CLOCKS_PER_SEC << "s" << std::endl;
 	return 0;
 }

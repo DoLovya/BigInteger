@@ -36,7 +36,7 @@ BigUInt& BigUInt::operator= (const std::string& number) noexcept
 }
 BigUInt& BigUInt::operator= (const BigUInt& number) noexcept
 {
-	this->uInt_ = number.uInt_;
+	this->num_ = number.num_;
 	return *this;
 }
 
@@ -47,12 +47,12 @@ BigUInt::~BigUInt() noexcept
 
 size_t BigUInt::Size() const noexcept
 {
-	return uInt_.size();
+	return num_.size();
 }
 
 auto BigUInt::Data() const noexcept -> const Number&
 {
-	return uInt_;
+	return num_;
 }
 
 
@@ -62,67 +62,87 @@ void BigUInt::DefauleConstruct() noexcept
 }
 void BigUInt::Construct(const uint64_t& number) noexcept
 {
-	uInt_ = uint64ToRevVector<int32_t>(number, 10);
+	num_ = uint64ToRevVector<int32_t>(number, 10);
 }
 void BigUInt::Construct(const std::string& str) noexcept
 {
 	if (str.empty()) return;
-	if (!uInt_.empty()) uInt_.clear();
+	if (!num_.empty()) num_.clear();
 	//XASSERT(str.length() != 0, L"Number length is zero");
 
 	auto bIter = str.begin();
 	while (bIter != str.end() - 1 && *bIter == '0')
 	{
-		XASSERT(isdigit(*bIter), L"Number has the illegal character");
+		//XASSERT(isdigit(*bIter), L"Number has the illegal character");
 		bIter++;
 	}
 
 	for (auto iter = str.end() - 1; ; iter--)
 	{
-		XASSERT(isdigit(*iter), L"Number has the illegal character");
-		uInt_.push_back(charToDigit(*iter));
+		//XASSERT(isdigit(*iter), L"Number has the illegal character");
+		num_.push_back(charToDigit(*iter));
 		if (iter == bIter) break;
 	}
 }
 void BigUInt::CopyConstruct(const BigUInt& number) noexcept
 {
-	uInt_ = number.uInt_;
+	num_ = number.num_;
 }
 bool BigUInt::IsZero() const noexcept
 {
-	return (Size() == 1 && uInt_.back() == 0);
+	return (Size() == 1 && num_.back() == 0);
+}
+void BigUInt::RemoveLeadZero() noexcept
+{
+	while (num_.size() > 1 && num_.back() == 0)
+	{
+		num_.pop_back();
+	}
 }
 
 
-void BigUInt::Add(const BigUInt& rhs)
+
+void BigUInt::Add(const BigUInt& rhs) noexcept
 {
 	if (IsZero())
 	{
-		uInt_ = rhs.uInt_;
+		num_ = rhs.num_;
 	}
 	else
 	{
-		uInt_.resize(std::max(Size(), rhs.Size()) + 1);
+		num_.resize(std::max(Size(), rhs.Size()) + 1);
 		int32_t carryBit = 0;
-		for (size_t i = 0; i < uInt_.size() - 1; i++)
+		for (size_t i = 0; i < num_.size() - 1; i++)
 		{
-			carryBit = GetCarryBit<10>(uInt_[i], rhs[i]);
-			uInt_[i] += rhs[i];
-			if (uInt_[i] >= 10)
+			carryBit = GetCarryBit<10>(num_[i], rhs[i]);
+			num_[i] += rhs[i];
+			if (num_[i] >= 10)
 			{
-				uInt_[i] -= 10;
+				num_[i] -= 10;
 			}
-			uInt_[i + 1] += carryBit;
+			num_[i + 1] += carryBit;
 		}
 		if (!carryBit)
 		{
-			uInt_.pop_back();
+			num_.pop_back();
 		}
 	}
 }
-void BigUInt::Sub(const BigUInt& rhs)
+void BigUInt::Sub(const BigUInt& rhs) noexcept
 {
-
+	for (size_t i = 0; i < Size(); i++)
+	{
+		int32_t sub = (*this)[i] - (i < rhs.Size() ? rhs[i] : 0);
+		if (sub < 0)
+		{
+			num_[i + 1] -= 1;
+			num_[i] = sub + 10;
+		}
+		else
+		{
+			num_[i] = sub;
+		}
+	}
 }
 
 std::istream& operator>>(std::istream& in, BigUInt& bigUInt)
@@ -135,8 +155,8 @@ std::istream& operator>>(std::istream& in, BigUInt& bigUInt)
 
 std::ostream& operator<< (std::ostream& out, const BigUInt& bigUInt)
 {
-	auto revIter = bigUInt.Data().rbegin();
-	while (revIter != bigUInt.Data().rend())
+	auto revIter = bigUInt.rbegin();
+	while (revIter != bigUInt.rend())
 	{
 		out << *revIter++;
 	}
@@ -150,6 +170,15 @@ BigUInt operator+ (const BigUInt& lhs, const BigUInt& rhs)
 	res.Add(rhs);
 	return res;
 }
+BigUInt operator- (const BigUInt& lhs, const BigUInt& rhs)
+{
+	BigUInt sub(lhs);
+	sub.Sub(rhs);
+	sub.RemoveLeadZero();
+	return sub;
+}
+
+
 
 bool operator< (const BigUInt& lhs, const BigUInt& rhs)
 {
@@ -176,7 +205,7 @@ bool operator== (const BigUInt& lhs, const BigUInt& rhs)
 	return BigUInt::CmpBigUInt(lhs, rhs) == 0 ? true : false;
 }
 
-int32_t BigUInt::CmpBigUInt(const BigUInt& lhs, const BigUInt& rhs)
+int32_t BigUInt::CmpBigUInt(const BigUInt& lhs, const BigUInt& rhs) noexcept
 {
 	if (lhs.Size() == rhs.Size())
 	{
@@ -196,10 +225,17 @@ int32_t BigUInt::CmpBigUInt(const BigUInt& lhs, const BigUInt& rhs)
 
 int32_t BigUInt::operator[] (int32_t index) const noexcept
 {
-	return (index >= Size() ? 0 : uInt_[index]);
+	return (index >= Size() ? 0 : num_[index]);
 }
 
-
+std::vector<int32_t>::const_reverse_iterator BigUInt::rbegin() const
+{
+	return num_.rbegin();
+}
+std::vector<int32_t>::const_reverse_iterator BigUInt::rend() const
+{
+	return num_.rend();
+}
 
 
 BN_NAMESPACE_END
