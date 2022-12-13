@@ -144,6 +144,23 @@ void BigUInt::Sub(const BigUInt& rhs) noexcept
 		}
 	}
 }
+void BigUInt::Mul(const BigUInt& rhs) noexcept
+{
+	Polynomial pLhs(num_);
+	Polynomial pRhs(rhs.num_);
+	Polynomial pMul = pLhs * pRhs;
+
+	num_.resize(pMul.Size());
+	for (size_t i = 0; i < pMul.Size(); i++)
+	{
+		num_[i] = static_cast<int32_t>(pMul[i].GetReal());
+	}
+	for (int64_t i = 0; i < static_cast<int64_t>(pMul.Size()) - 1; i++)
+	{
+		num_[i + 1] += (num_[i] / 10);
+		num_[i] %= 10;
+	}
+}
 
 std::istream& operator>>(std::istream& in, BigUInt& bigUInt)
 {
@@ -177,6 +194,14 @@ BigUInt operator- (const BigUInt& lhs, const BigUInt& rhs)
 	sub.RemoveLeadZero();
 	return sub;
 }
+BigUInt operator* (const BigUInt& lhs, const BigUInt& rhs)
+{
+	BigUInt mul(lhs);
+	mul.Mul(rhs);
+	mul.RemoveLeadZero();
+	return mul;
+}
+
 
 
 
