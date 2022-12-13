@@ -12,6 +12,14 @@ Polynomial::~Polynomial()
 
 }
 
+Polynomial::Polynomial(const std::vector<int32_t>& poly)
+{
+	poly_.clear();
+	for (const auto& val : poly)
+	{
+		poly_.push_back(static_cast<double>(val));
+	}
+}
 Polynomial::Polynomial(const std::vector<double>& poly)
 {
 	poly_.clear();
@@ -89,7 +97,7 @@ Polynomial operator* (const Polynomial& lhs, const Polynomial& rhs) noexcept
 	Polynomial mul;
 	Polynomial tLhs = lhs, tRhs = rhs;
 
-	int32_t lim = 1, len = 0;
+	size_t lim = 1, len = 0;
 	while (lim <= tLhs.Size() + tRhs.Size()) lim <<= 1, len++;
 
 	std::vector<int32_t> rev(lim);
@@ -102,11 +110,11 @@ Polynomial operator* (const Polynomial& lhs, const Polynomial& rhs) noexcept
 	FFT(tLhs.poly_, 1, lim, rev), FFT(tRhs.poly_, 1, lim, rev);
 	for (int i = 0; i <= lim; i++)
 	{
-		mul[i] = tLhs[i] * tLhs[i];
+		mul[i] = tLhs[i] * tRhs[i];
 	}
 	FFT(mul.poly_, -1, lim, rev);
 	for (int i = 0; i <= lim; i++) {
-		mul[i].SetReal(mul[i].GetReal() / (double)lim);
+		mul[i].SetReal(mul[i].GetReal() / static_cast<double>(lim) + 0.5);
 	}
 	return mul;
 }

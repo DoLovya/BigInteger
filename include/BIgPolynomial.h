@@ -14,8 +14,10 @@ public:
 	Polynomial();
 	virtual ~Polynomial();
 
+	Polynomial(const std::vector<int32_t>& poly);
 	Polynomial(const std::vector<double>& poly);
 	Polynomial(const std::initializer_list<double>& poly);
+
 
 
 	size_t Size() const noexcept;

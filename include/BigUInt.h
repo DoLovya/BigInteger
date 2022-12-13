@@ -8,6 +8,7 @@
 #include "Enum.h"
 #include "Sign.h"
 #include "Algorithm.h"
+#include "BIgPolynomial.h"
 
 BN_NAMESPACE_BEGIN
 
@@ -36,6 +37,7 @@ public:
 
 	friend BigUInt operator+ (const BigUInt& lhs, const BigUInt& rhs);
 	friend BigUInt operator- (const BigUInt& lhs, const BigUInt& rhs);
+	friend BigUInt operator* (const BigUInt& lhs, const BigUInt& rhs);
 
 	friend bool operator< (const BigUInt& lhs, const BigUInt& rhs);
 	friend bool operator<= (const BigUInt& lhs, const BigUInt& rhs);
@@ -59,6 +61,7 @@ private:
 
 	void Add(const BigUInt& rhs) noexcept;
 	void Sub(const BigUInt& rhs) noexcept;  // 必须保证 this > rhs
+	void Mul(const BigUInt& rhs) noexcept;
 
 	// 重载[]
 	int32_t operator[] (int32_t index) const noexcept;

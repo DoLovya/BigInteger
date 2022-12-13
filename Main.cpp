@@ -5,12 +5,20 @@
 
 int main()
 {
-	std::cout << BN::DoubleIsZero(1) << std::endl;
+	BN::BigUInt num1, num2;
+	std::cin >> num1 >> num2;
 
-	BN::Polynomial p1 = { 1.0, 1.0 };
-	BN::Polynomial p2 = { 1.0, 1.0 };
+	std::cout << num1 * num2 << std::endl;
+
+	BN::Polynomial p1 = { 2 };
+	BN::Polynomial p2 = { 9 };
 
 	std::cout << p1 * p2 << std::endl;
-
 	return 0;
 }
+
+
+/*
+15158111821213134314239212926111613129
+15159303447561417273129
+*/
